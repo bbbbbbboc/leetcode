@@ -1,3 +1,4 @@
+// 28 Implement strStr()    
 public class Strstr {
 	public int strstr(String haystack, String needle) {
 		if (haystack == null || needle == null)

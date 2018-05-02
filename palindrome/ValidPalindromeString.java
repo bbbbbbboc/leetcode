@@ -1,3 +1,4 @@
+// 	125	Valid Palindrome    
 public class ValidPalindromeString {
 	private boolean checkValid(char c) {
 		return Character.isLetter(c) || Character.isDigit(c);

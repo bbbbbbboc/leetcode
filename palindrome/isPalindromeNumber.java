@@ -1,3 +1,4 @@
+// 	9	Palindrome Number    
 public class isPalindromeNumber {
 	public boolean isPalindrome(int x) {
 		String s = Stirng.valueOf(x);
