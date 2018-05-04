@@ -1,3 +1,5 @@
+// 350. Intersection of Two Arrays II
+
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
         HashMap<Integer, Integer> hash1 = new HashMap<>();
