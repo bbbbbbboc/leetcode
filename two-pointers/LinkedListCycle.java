@@ -1,4 +1,4 @@
-// 141. Linked List Cycle
+// 142. Linked List Cycle II
 
 /**
  * Definition for singly-linked list.
@@ -12,20 +12,25 @@
  * }
  */
 public class Solution {
-    public boolean hasCycle(ListNode head) {
-        if (head == null)
-            return false;
-
-        ListNode slow = head;
-        ListNode fast = head.next;
-
-        while (fast != null && fast.next != null) {
-            if (fast == slow)
-                return true;
-            fast = fast.next.next;
-            slow = slow.next;
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next==null) {
+            return null;
         }
 
-        return false;
+        ListNode fast, slow;
+        fast = head.next;
+        slow = head;
+        while (fast != slow) {
+            if(fast==null || fast.next==null)
+                return null;
+            fast = fast.next.next;
+            slow = slow.next;
+        } 
+        
+        while (head != slow.next) {
+            head = head.next;
+            slow = slow.next;
+        }
+        return head;
     }
 }
