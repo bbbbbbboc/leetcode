@@ -28,7 +28,7 @@ class Solution {
                 
                 Queue<Point> queue = new LinkedList<>();
                 queue.offer(new Point(i, j));
-                grid[i][j] = 0;
+                grid[i][j] = '0';
                 count++;
                 
                 while (!queue.isEmpty()) {
