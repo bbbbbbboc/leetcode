@@ -36,3 +36,45 @@ class Solution {
         return visited.size() == n;
     }
 }
+
+
+// V2 Union Find
+class Solution {
+    class UnionFind {
+        int[] father;
+        UnionFind(int n) {
+            father = new int[n];
+            for (int i = 0; i < n; i++) {
+                father[i] = i;
+            }
+        }
+        
+        int findRoot(int n) {
+            if (n == father[n])
+                return n;
+            return father[n] = findRoot(father[n]);
+        }
+        
+        void connect(int a, int b) {
+            int rootA = findRoot(a);
+            int rootB = findRoot(b);
+            if (rootA != rootB) {
+                father[rootA] = rootB;
+            }
+        }
+    }
+    
+    public boolean validTree(int n, int[][] edges) {
+        if (n < 0 || edges.length != n - 1)
+            return false;
+        
+        UnionFind uf = new UnionFind(n);
+        for (int[] i : edges) {
+            if (uf.findRoot(i[0]) == uf.findRoot(i[1]))
+                return false;
+            uf.connect(i[0], i[1]);
+        }
+        
+        return true;
+    }
+}
