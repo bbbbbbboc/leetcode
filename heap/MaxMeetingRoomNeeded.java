@@ -9,7 +9,9 @@
  *     Interval(int s, int e) { start = s; end = e; }
  * }
  */
+
 class Solution {
+  
     class Point {
         int t;
         int status;
