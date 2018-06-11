@@ -1,4 +1,5 @@
 // 96. Unique Binary Search Trees
+// construct tree with 1 to n, how many ways
 
 class Solution {
     public int numTrees(int n) {
