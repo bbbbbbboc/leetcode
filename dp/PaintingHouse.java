@@ -1,3 +1,5 @@
+// 256. Paint House
+
 class Solution {
     public int minCost(int[][] costs) {
         if (costs == null || costs.length == 0)
