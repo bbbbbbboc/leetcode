@@ -1,4 +1,6 @@
 // 683. K Empty Slots
+// sliding window, both time and space O(n)
+
 
 class Solution {
     public int kEmptySlots(int[] flowers, int k) {
