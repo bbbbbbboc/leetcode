@@ -5,30 +5,30 @@ class Solution {
         return nums[quickSelect(nums, 0, nums.length - 1, nums.length - k + 1)];
     }
     
-    private int quickSelect(int[] nums, int low, int high, int k) {
-        int i = low;
-        int j = high;
-        int pivot = nums[high];
+    private int quickSelect(int[] nums, int start, int end, int k) {
+        int left = start;
+        int right = end;
+        int pivot = nums[(start + end) / 2];
         
-        while (i < j) {
-            if (nums[i++] > pivot) {
-                i--;
-                j--;
-                swap(nums, i, j);
+        while (left <= right) {
+            while (left <= right && nums[left] > pivot)
+                left++;
+            while (left <= right && nums[right] < pivot)
+                right--;
+                
+            if (left <= right) {
+                swap(nums, left, right);
+                left++;
+                right--;
             }
-        }
+        } 
         
-        swap(nums, i, high);
-        // count the number of elements <= pivot
-        int count = i - low + 1;
-        
-        if (count == k) {
-            return i;
-        } else if (count > k) {
-            return quickSelect(nums, low, i - 1, k);
-        } else {
-            return quickSelect(nums, i + 1, high, k - count);
-        }
+        if (start + k - 1 <= right)
+            return quickSelect(nums, start, right, k);
+        if (start + k - 1 >= left)
+            return quickSelect(nums, left, end, k - (left - start));
+            
+        return nums[right + 1];
     }
     
     private void swap(int[] nums, int i, int j) {
