@@ -1,5 +1,4 @@
 // 138. Copy List with Random Pointer
-
 /**
  * Definition for singly-linked list with a random pointer.
  * class RandomListNode {
@@ -11,7 +10,8 @@
 public class Solution {
     public RandomListNode copyRandomList(RandomListNode head) {
         
-        RandomListNode iter = head, next;
+        RandomListNode iter = head;
+        RandomListNode next;
 
 	    // First round: make copy of each node,
 	    // and link them together side-by-side in a single list.
